@@ -1,6 +1,6 @@
 import './LandingPage.css';
 import { assets } from "../../assets/assets.js";
-
+import { Twitter, Facebook, Linkedin,Instagram } from 'lucide-react';
 const LandingPage = () => {
     return (
         <>
@@ -148,6 +148,9 @@ const LandingPage = () => {
                         <a href="/dashboard" className="text-warning text-decoration-none mx-2">Dashboard</a>|
                         <a href="#how-it-works" className="text-warning text-decoration-none mx-2">How it Works</a>
                     </p>
+                    <p className="mt-3"> 
+                    </p>
+
                 </div>
             </footer>
         </>
