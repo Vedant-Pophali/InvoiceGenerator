@@ -129,28 +129,44 @@ const InvoiceForm = () => {
             </div>
             <div className="mb-4">
                 <h5>Totals</h5>
-                <div className="card p-3">
-                    <div className="row g-3">
-                        <div className="col-md-6">
-                            <label className="form-label">Subtotal</label>
-                            <span className="form-control bg-light">₹ 5000</span>
+                <div className="d-flex justify-content-end">
+                    <div className="w-100 w-md-50">
+                        <div className="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span>₹{1000.00}</span>
                         </div>
-                        <div className="col-md-6">
-                            <label className="form-label">Tax (18%)</label>
-                            <span className="form-control bg-light">₹ 900</span>
+                        <div className="d-flex justify-content-between align-items-center my-2">
+                            <label htmlFor="taxInput" className="mb-0">Tax Rate (%)</label>
+                            <div className="input-group" style={{ width: "100px" }}>
+                                <input
+                                    type="number"
+                                    className="form-control text-end"
+                                    id="taxInput"
+                                    placeholder="2"
+                                    required
+                                />
+                                <span className="input-group-text px-2">%</span>
+                            </div>
                         </div>
-                        <div className="col-md-6">
-                            <label className="form-label">Discount</label>
-                            <span className="form-control bg-light">₹ 200</span>
+                        <div className="d-flex justify-content-between">
+                            <span>Tax Amount</span>
+                            <span>₹{1000.00}</span>
                         </div>
-                        <div className="col-md-6">
-                            <label className="form-label fw-bold">Grand Total</label>
-                            <span className="form-control bg-light fw-bold">₹ 5700</span>
+                        <div className="d-flex justify-content-between">
+                            <div className="d-flex justify-content-between fw-bold mt-2">
+                                <span>Grand Total</span>
+                                <span>₹{1000.00}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="mb-4"></div>
+            <div className="mb-4">
+                <h5>Notes</h5>
+                <div className="w-100">
+                    <textarea name="notes" className="form-control" rows={3} />
+                </div>
+            </div>
         </div>
     )
 }
