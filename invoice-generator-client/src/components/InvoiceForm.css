@@ -1,0 +1,106 @@
+/* Section Headings */
+.invoice-section h5,
+.invoiceform h5 {
+    color: #fd7e14;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Section Card Styling */
+.invoice-section .mb-4 {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+/* Input Fields */
+.invoice-section .form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.invoice-section .form-control:focus {
+    border-color: #fd7e14;
+    box-shadow: 0 0 0 0.2rem rgba(253, 126, 20, 0.2);
+}
+
+/* Textarea Styling */
+.invoice-section textarea.form-control {
+    resize: vertical;
+    min-height: 70px;
+}
+
+/* Buttons */
+.invoice-section .btn-primary {
+    background-color: #fd7e14;
+    border: none;
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.invoice-section .btn-primary:hover {
+    background-color: #e06609;
+}
+
+/* Delete Button */
+.invoice-section .btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.invoice-section .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Item Card */
+.invoice-section .card {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Company Logo */
+.invoiceform .logo-upload {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.invoiceform .logo-upload img {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 2px dashed #fd7e14;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.invoiceform .logo-upload img:hover {
+    transform: scale(1.05);
+    border-color: #e06609;
+}
+
+/* Checkbox */
+.invoice-section .form-check-input:checked {
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+}
+
+.invoice-section .form-check-label {
+    margin-left: 0.3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .invoice-section .form-control,
+    .invoice-section .btn,
+    .invoice-section textarea,
+    .invoice-section .form-check-label {
+        font-size: 0.95rem;
+    }
+}
