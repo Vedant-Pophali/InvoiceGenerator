@@ -148,7 +148,11 @@ const LandingPage = () => {
                         <a href="/dashboard" className="text-warning text-decoration-none mx-2">Dashboard</a>|
                         <a href="#how-it-works" className="text-warning text-decoration-none mx-2">How it Works</a>
                     </p>
-                    <p className="mt-3"> 
+                    <p className="mt-3">
+                        <a href="#" className="text-white-50 me-3 fs-5"><Twitter /></a>
+                        <a href="#" className="text-white-50 me-3 fs-5"><Facebook /></a>
+                        <a href="#" className="text-white-50 me-3 fs-5"><Linkedin /></a>
+                        <a href="#" className="text-white-50 me-3 fs-5"><Instagram /></a>
                     </p>
 
                 </div>

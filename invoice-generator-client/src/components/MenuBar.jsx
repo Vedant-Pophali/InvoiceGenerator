@@ -37,7 +37,7 @@ const MenuBar = () => {
                             <Link className="nav-link fw-medium text-white" to="/dashboard">Dashboard</Link>
                         </li>
                         <li className="nav-item">
-                            <button className="navbar-link fw-medium text-white bg-transparent border-0">Generate</button>
+                            <Link className="nav-link fw-medium text-white" to="/generate">Generate</Link>
                         </li>
                         <li className="nav-item">
                             <button className="btn btn-primary rounded-pill px-4">Login/Signup</button>
