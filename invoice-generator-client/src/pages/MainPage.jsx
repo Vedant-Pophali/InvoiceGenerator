@@ -6,9 +6,21 @@ import TemplateGrid from "../components/TemplateGrid.jsx";
 const MainPage = () => {
     const [isEditingTitle, setEditingTitle] = useState(false);
     const [invoiceTitle, setInvoiceTitle] = useState("New Invoice");
+    const [invoiceData, setInvoiceData] = useState({});
+    const [selectedTemplate, setSelectedTemplate] = useState(null);
 
     const handleTitleChange = (e) => {
-        setInvoiceTitle(e.target.value);
+        const newTitle = e.target.value;
+        setInvoiceTitle(newTitle);
+        setInvoiceData((prev) => ({
+            ...prev,
+            title: newTitle,
+        }));
+    };
+
+    const handleTemplateClick = (templateId) => {
+        setSelectedTemplate(templateId);
+        setEditingTitle(false);
     };
 
     const handleTitleBlur = () => {
@@ -31,7 +43,6 @@ const MainPage = () => {
                                 onBlur={handleTitleBlur}
                                 onChange={handleTitleChange}
                                 value={invoiceTitle}
-
                             />
                         ) : (
                             <>
@@ -50,12 +61,15 @@ const MainPage = () => {
                 <div className="row g-4 align-items-stretch">
                     <div className="col-12 col-lg-6 d-flex">
                         <div className="bg-white border rounded shadow-sm p-4 w-100">
-                            <InvoiceForm />
+                            <InvoiceForm
+                                invoiceData={invoiceData}
+                                setInvoiceData={setInvoiceData}
+                            />
                         </div>
                     </div>
                     <div className="col-12 col-lg-6 d-flex">
                         <div className="bg-white border rounded shadow-sm p-4 w-100">
-                            <TemplateGrid   />
+                            <TemplateGrid onTemplateClick={handleTemplateClick} />
                         </div>
                     </div>
                 </div>
