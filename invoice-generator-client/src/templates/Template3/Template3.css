@@ -1,0 +1,82 @@
+.w-800 {
+    max-width: 800px;
+}
+
+.template3 {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: white;
+    color: #333;
+}
+
+.template3 .company-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff; /* Blue */
+}
+
+.template3 .invoice-title {
+    color: #007bff;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.template3 .billing-title {
+    color: #007bff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.template3 .black-border {
+    border-color: black !important;
+}
+
+.template3 .billing-box {
+    background-color: #e7f0fd;
+}
+
+.template3 .table-header {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+.template3 .totals-box {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #d6eaff;
+}
+
+.template3 .total-highlight {
+    color: #007bff !important;
+}
+
+/* Address Section Styling */
+.address-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.address-box {
+    flex: 1;
+    background-color: white;
+    padding: 0;
+    border: none;
+}
+
+/* Bank Details Box */
+.bank-box {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid black;
+    margin-top: 1rem;
+}
+
+.custom-header {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+.custom-header th {
+    background-color: #007bff !important;
+    color: white !important;
+}
