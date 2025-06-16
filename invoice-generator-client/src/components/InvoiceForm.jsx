@@ -88,21 +88,24 @@ const InvoiceForm = () => {
             <div className="mb-4">
                 <h5>Company Logo</h5>
                 <div className="d-flex align-items-center gap-3">
-                    <label htmlFor="image" className="form-label">
-                        <img src={invoiceData.logo ? invoiceData.log :assets.upload_area}
-                             alt="upload"
-                             width={88}
-                             height={88}
+                    <label htmlFor="image" className="form-label mb-0" style={{ cursor: "pointer" }}>
+                        <img
+                            src={invoiceData.logo ? invoiceData.logo : assets.upload_area}
+                            alt="upload"
+                            width={88}
+                            height={88}
+                            style={{ objectFit: "cover", borderRadius: "8px", border: "1px solid #ccc" }}
                         />
                     </label>
-                    <input type="file"
-                           id="image"
-                           hidden
-                           accept="image/*"
-                           onChange={handleLogoUpload}/>
+                    <input
+                        type="file"
+                        id="image"
+                        hidden
+                        accept="image/*"
+                        onChange={handleLogoUpload}
+                    />
                 </div>
             </div>
-
             {/* Company Info */}
             <div className="mb-4">
                 <h5>Your Company</h5>

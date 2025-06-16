@@ -21,16 +21,16 @@
         companyName:company.name,
         companyAddress:company.address,
         companyPhone:company.phone,
-        companyLogo:company.logo,
+        companyLogo:logo||company.logo,
 
         invoiceNumber:invoice.number,
         invoiceDate:invoice.date,
         paymentDate:invoice.dueDate,
 
-        accountName:account.name,
-        bankName:account.bankName,
-        accountNumber:account.number,
-        accountIfscCode:account.accountIfscCode,
+        accountName: account.name,
+        bankName: account.bankName,
+        accountNumber: account.accNumber,
+        accountIfscCode: account.ifsccode,
 
         billingName:billing.name,
         billingAddress:billing.address,
