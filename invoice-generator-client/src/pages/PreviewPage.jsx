@@ -6,6 +6,8 @@ import { saveInvoice } from "../service/InvoiceService.js";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
+import html2canvas from "html2canvas";
+import { uploadInvoiceThumbnail } from "../service/cloudinaryService.js";
 
 const PreviewPage = () => {
     const previewRef = useRef();
@@ -15,11 +17,27 @@ const PreviewPage = () => {
 
     const handleSaveAndExit = async () => {
         try {
+            if (!previewRef.current) {
+                toast.error("Preview not ready yet!");
+                return;
+            }
+
             setLoading(true);
+            const canvas = await html2canvas(previewRef.current, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: "#fff",
+                scrollY: -window.scrollY,
+            });
+            const imageData = canvas.toDataURL("image/png");
+            const thumbnailUrl = await uploadInvoiceThumbnail(imageData);
+
             const payload = {
                 ...invoiceData,
+                thumbnailUrl,
                 template: selectedTemplate,
             };
+
             const response = await saveInvoice(baseUrl, payload);
             if (response.status === 200) {
                 toast.success("Successfully Saved the Invoice");
@@ -29,7 +47,7 @@ const PreviewPage = () => {
             }
         } catch (err) {
             console.error(err);
-            toast.error("Save failed", err.message);
+            toast.error("Save failed: " + err.message);
         } finally {
             setLoading(false);
         }
@@ -92,7 +110,10 @@ const PreviewPage = () => {
             </div>
 
             {/* Invoice Preview */}
-            <div className="flex-grow-1 overflow-auto d-flex justify-content-center align-items-start py-3">
+            <div
+                className="flex-grow-1 overflow-auto d-flex justify-content-center align-items-start py-3"
+                ref={previewRef}
+            >
                 <InvoicePreview invoiceData={invoiceData} template={selectedTemplate} />
             </div>
 
