@@ -1,0 +1,71 @@
+package com.example.invoicegenerator.Entity;
+
+import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.mongodb.core.mapping.Document;
+import java.time.Instant;
+import java.util.List;
+@Data
+@Document(collection = "invoices")
+public class Invoice {
+    @Id
+    private String id;
+    private Company company;
+    private Billing billing;
+    private Shipping shipping;
+    private InvoiceDetails invoiceDetails;
+    private List<Items> items;
+    private String notes;
+    private String logo;
+    private double tax;
+    private Account account;
+    @CreatedDate
+    private Instant createdAt;
+    @LastModifiedBy
+    private String lastUpdatedAt;
+    private String thumbnailUrl;
+    private String template;
+    private String title;
+
+    @Data
+    public static class Company{
+        private String name;
+        private String phone;
+        private String address;
+    }
+    @Data
+    public static class Billing{
+        private String name;
+        private String phone;
+        private String address;
+    }
+    @Data
+    public static class Account{
+        private String name;
+        private String bankName;
+        private String accNumber;
+        private String ifsccode;
+    }
+    @Data
+    public static class Shipping{
+        private String name;
+        private String phone;
+        private String address;
+    }
+    @Data
+    public static class InvoiceDetails {
+        private String number;
+        private String date;
+        private String dueDate;
+    }
+    @Data
+    public static class Items{
+        private String name;
+        private int qty;
+        private double amount;
+        private String description;
+        private double total;
+    }
+}
