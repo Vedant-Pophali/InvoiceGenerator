@@ -8,13 +8,11 @@ import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import html2canvas from "html2canvas";
 import { uploadInvoiceThumbnail } from "../service/cloudinaryService.js";
-
 const PreviewPage = () => {
     const previewRef = useRef();
     const { selectedTemplate, setSelectedTemplate, invoiceData, baseUrl } = useContext(AppContext);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-
     const handleSaveAndExit = async () => {
         try {
             if (!previewRef.current) {
@@ -116,15 +114,7 @@ const PreviewPage = () => {
             >
                 <InvoicePreview invoiceData={invoiceData} template={selectedTemplate} />
             </div>
-
-            {/* Total Summary */}
-            <div className="text-end mt-3 px-5">
-                <p><strong>Subtotal:</strong> ₹{subtotal.toFixed(2)}</p>
-                <p><strong>Tax ({taxRate}%):</strong> ₹{taxTotal.toFixed(2)}</p>
-                <p><strong>Grand Total:</strong> ₹{grandTotal.toFixed(2)}</p>
-            </div>
         </div>
     );
 };
-
 export default PreviewPage;
