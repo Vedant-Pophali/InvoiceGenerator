@@ -6,7 +6,7 @@ const Template5 = ({ data }) => {
         : data.companyLogo || "https://via.placeholder.com/150";
 
     return (
-        <div className="template3 w-800 mx-auto p-4 border black-border bg-white">
+        <div className="template5 w-800 mx-auto p-4 border black-border bg-white">
             {/* Company & Invoice Title */}
             <div className="d-flex justify-content-between align-items-start mb-4">
                 <div className="d-flex flex-column align-items-start text-start">
@@ -38,13 +38,13 @@ const Template5 = ({ data }) => {
 
             {/* Billing & Shipping */}
             <div className="address-section mb-4 d-flex gap-3">
-                <div className="address-box col-md-6 p-3" style={{ backgroundColor: "#e7f0fd", borderRadius: "8px" }}>
+                <div className="address-box col-md-6 p-3" style={{ backgroundColor: "#e8f5e9", borderRadius: "8px" }}>
                     <div className="billing-title mb-2 fw-semibold">Ship To</div>
                     <div>{data.shippingName}</div>
                     <div>{data.shippingAddress}</div>
                     <div>{data.shippingPhone}</div>
                 </div>
-                <div className="address-box col-md-6 p-3" style={{ backgroundColor: "#e7f0fd", borderRadius: "8px" }}>
+                <div className="address-box col-md-6 p-3" style={{ backgroundColor: "#e8f5e9", borderRadius: "8px" }}>
                     <div className="billing-title mb-2 fw-semibold">Bill To</div>
                     <div>{data.billingName}</div>
                     <div>{data.billingAddress}</div>
@@ -81,7 +81,10 @@ const Template5 = ({ data }) => {
             <hr />
 
             {/* Totals */}
-            <div className="bank-box mt-4 p-3" style={{ backgroundColor: "#e7f0fd", borderRadius: "8px", width: "300px", marginLeft: "auto" }}>
+            <div
+                className="bank-box mt-4 p-3"
+                style={{ backgroundColor: "#e8f5e9", borderRadius: "8px", width: "300px", marginLeft: "auto" }}
+            >
                 <div className="d-flex justify-content-between">
                     <div>Subtotal</div>
                     <div>{data.currencySymbol}{data.subtotal.toFixed(2)}</div>
@@ -97,7 +100,7 @@ const Template5 = ({ data }) => {
             </div>
 
             {/* Bank Details */}
-            <div className="bank-box mt-4 p-3" style={{ backgroundColor: "#e7f0fd", borderRadius: "8px" }}>
+            <div className="bank-box mt-4 p-3" style={{ backgroundColor: "#e8f5e9", borderRadius: "8px" }}>
                 <div className="billing-title mb-2 fw-semibold">Bank Details</div>
                 <div>Account Name: {data.accountName}</div>
                 <div>Bank Name: {data.bankName}</div>

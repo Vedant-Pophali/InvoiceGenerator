@@ -6,6 +6,14 @@ import InvoicePreview from "../components/InvoicePreview.jsx";
 const PreviewPage = () => {
     const { selectedTemplate, setSelectedTemplate, invoiceData } = useContext(AppContext);
 
+    const templateColors = {
+        template1: "#fd7e14", // Orange
+        template2: "#6f42c1", // Purple
+        template3: "#4169e1", // Royal Blue
+        template4: "#343a40", // Dark Grey
+        template5: "#228B22"  // Leaf Green
+    };
+
     return (
         <div className="previewpage container-fluid d-flex flex-column p-3 min-vh-100">
             {/* Action buttons */}
@@ -16,10 +24,15 @@ const PreviewPage = () => {
                         <button
                             key={id}
                             onClick={() => setSelectedTemplate(id)}
-                            style={{ minWidth: "100px", height: "50px" }}
-                            className={`btn btn-sm rounded-pill p-2 ${
-                                selectedTemplate === id ? 'btn-warning' : 'btn-outline-secondary'
-                            }`}
+                            style={{
+                                minWidth: "100px",
+                                height: "50px",
+                                backgroundColor: templateColors[id],
+                                color: "white",
+                                border: "none",
+                                borderRadius: "25px"
+                            }}
+                            className={`btn btn-sm p-2 ${selectedTemplate === id ? 'fw-bold' : ''}`}
                         >
                             {label}
                         </button>

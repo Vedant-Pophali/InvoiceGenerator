@@ -11,44 +11,45 @@
 .template2 .company-title {
     font-size: 18px;
     font-weight: bold;
-    color: #6f42c1;
+    color: #4b0082; /* Dark Purple */
 }
 
 .template2 .invoice-title {
-    color: #6f42c1;
+    color: #4b0082;
     font-size: 28px;
     font-weight: bold;
 }
 
-.template2  .billing-title {
-    color: #6f42c1;
+.template2 .billing-title {
+    color: #4b0082;
     font-size: 20px;
     font-weight: bold;
 }
 
-.template2  .black-border {
+.template2 .black-border {
     border-color: black !important;
 }
 
-.template2  .billing-box {
-    background-color: #f3e8ff;
+.template2 .billing-box {
+    background-color: #efe0ff; /* light lavender background */
 }
 
-.template2  .table-header {
-    background-color: #6f42c1 !important;
+.template2 .table-header {
+    background-color: #4b0082 !important;
     color: white !important;
 }
 
-.template2  .totals-box {
+.template2 .totals-box {
     font-size: 16px;
     font-weight: bold;
     background-color: #e3d7fa;
 }
 
 .template2 .total-highlight {
-    color: #6f42c1 !important;
+    color: #4b0082 !important;
 }
 
+/* Address Section Styling */
 .address-section {
     display: flex;
     justify-content: space-between;
@@ -62,6 +63,7 @@
     border: none;
 }
 
+/* Bank Details Box */
 .bank-box {
     background-color: white;
     padding: 1rem;
@@ -70,10 +72,11 @@
 }
 
 .custom-header {
-    background-color: #6f42c1 !important;
+    background-color: #4b0082 !important;
     color: white !important;
 }
+
 .custom-header th {
-    background-color: #6f42c1 !important;
+    background-color: #4b0082 !important;
     color: white !important;
 }

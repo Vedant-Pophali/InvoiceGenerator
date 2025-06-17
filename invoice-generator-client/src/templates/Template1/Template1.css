@@ -1,80 +1,71 @@
 .w-800 {
     max-width: 800px;
 }
-
 .template1 {
     font-family: 'Segoe UI', sans-serif;
     background-color: white;
     color: #333;
 }
-
+/* Header Colors */
 .template1 .company-title {
     font-size: 18px;
     font-weight: bold;
-    color: #fd7e14; /* Orange */
+    color: #fd7e14;
 }
-
 .template1 .invoice-title {
     color: #fd7e14;
     font-size: 28px;
     font-weight: bold;
 }
-
 .template1 .billing-title {
     color: #fd7e14;
     font-size: 20px;
     font-weight: bold;
 }
-
 .template1 .black-border {
     border-color: black !important;
 }
-
-.template1 .billing-box {
-    background-color: #fff5ec; /* Light warm background */
-}
-
-.template1 .table-header {
-    background-color: #fd7e14 !important;
-    color: white !important;
-}
-
-.template1 .totals-box {
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #fff0db;
-}
-
-.template1 .total-highlight {
-    color: #fd7e14 !important;
-}
-
-/* Address Section Styling */
+/* Address Boxes */
 .address-section {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
 }
-
 .address-box {
     flex: 1;
     background-color: white;
     padding: 0;
     border: none;
 }
-
-/* Bank Details Box */
-.bank-box {
-    background-color: white;
+/* Light orange background for billing sections */
+.template1 .billing-box {
+    background-color: #fff3e0;
+    border-radius: 8px;
+}
+/* Totals Box */
+.template1 .totals-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #fff3e0;
+    border-radius: 8px;
+    width: 300px;
+    margin-left: auto;
+}
+/* Highlighted total */
+.template1 .total-highlight {
+    color: #fd7e14 !important;
+}
+/* Bank Details */
+.template1 .bank-box {
+    background-color: #fff3e0;
     padding: 1rem;
     border: 1px solid black;
     margin-top: 1rem;
+    border-radius: 8px;
 }
-.custom-header {
+/* Table header override to prevent purple Bootstrap */
+.template1-table thead tr th {
     background-color: #fd7e14 !important;
     color: white !important;
-}
-.custom-header th {
-    background-color: #fd7e14 !important;
-    color: white !important;
+    font-weight: bold;
 }

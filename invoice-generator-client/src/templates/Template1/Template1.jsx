@@ -1,9 +1,6 @@
 import './Template1.css';
 
 const Template1 = ({ data }) => {
-    console.log("Invoice Template Data:", data);
-    console.log("Company Logo Path:", data.companyLogo);
-
     const logoSrc = data.companyLogo?.startsWith("data:")
         ? data.companyLogo
         : data.companyLogo || "https://via.placeholder.com/150";
@@ -21,7 +18,7 @@ const Template1 = ({ data }) => {
                             height: "120px",
                             objectFit: "cover",
                             marginBottom: "10px",
-                            borderRadius: "8px" // optional for rounded look
+                            borderRadius: "8px"
                         }}
                     />
                     <div className="company-title fw-bold">{data.companyName}</div>
@@ -41,13 +38,13 @@ const Template1 = ({ data }) => {
 
             {/* Billing & Shipping */}
             <div className="address-section mb-4 d-flex gap-3">
-                <div className="address-box col-md-6 p-3" style={{ backgroundColor: "#fff3e0", borderRadius: "8px" }}>
+                <div className="address-box col-md-6 p-3 billing-box">
                     <div className="billing-title mb-2 fw-semibold">Ship To</div>
                     <div>{data.shippingName}</div>
                     <div>{data.shippingAddress}</div>
                     <div>{data.shippingPhone}</div>
                 </div>
-                <div className="address-box col-md-6 p-3" style={{ backgroundColor: "#fff3e0", borderRadius: "8px" }}>
+                <div className="address-box col-md-6 p-3 billing-box">
                     <div className="billing-title mb-2 fw-semibold">Bill To</div>
                     <div>{data.billingName}</div>
                     <div>{data.billingAddress}</div>
@@ -58,8 +55,8 @@ const Template1 = ({ data }) => {
             <hr />
 
             {/* Items Table */}
-            <table className="table table-bordered text-center black-border">
-                <thead className="custom-header">
+            <table className="table table-bordered text-center black-border template1-table">
+                <thead>
                 <tr>
                     <th>#</th>
                     <th>Description</th>
@@ -84,7 +81,7 @@ const Template1 = ({ data }) => {
             <hr />
 
             {/* Totals */}
-            <div className="bank-box mt-4 p-3" style={{ backgroundColor: "#fff3e0", borderRadius: "8px", width: "300px", marginLeft: "auto" }}>
+            <div className="bank-box totals-box">
                 <div className="d-flex justify-content-between">
                     <div>Subtotal</div>
                     <div>{data.currencySymbol}{data.subtotal.toFixed(2)}</div>
@@ -100,7 +97,7 @@ const Template1 = ({ data }) => {
             </div>
 
             {/* Bank Details */}
-            <div className="bank-box mt-4 p-3" style={{ backgroundColor: "#fff3e0", borderRadius: "8px" }}>
+            <div className="bank-box billing-box">
                 <div className="billing-title mb-2 fw-semibold">Bank Details</div>
                 <div>Account Name: {data.accountName}</div>
                 <div>Bank Name: {data.bankName}</div>

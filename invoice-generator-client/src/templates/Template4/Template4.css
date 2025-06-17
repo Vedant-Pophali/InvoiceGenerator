@@ -4,79 +4,69 @@
 
 .template4 {
     font-family: 'Segoe UI', sans-serif;
-    background-color: white;
-    color: #333;
+    background-color: #f8f9fa;
+    color: #333; /* Dark base text */
 }
 
 .template4 .company-title {
     font-size: 18px;
     font-weight: bold;
-    color: #28a745; /* Green */
+    color: #212121;
 }
 
 .template4 .invoice-title {
-    color: #28a745;
+    color: #2c2c2c;
     font-size: 28px;
     font-weight: bold;
 }
 
 .template4 .billing-title {
-    color: #28a745;
+    color: #424242;
     font-size: 20px;
     font-weight: bold;
 }
 
 .template4 .black-border {
-    border-color: black !important;
+    border-color: #555 !important;
 }
 
 .template4 .billing-box {
-    background-color: #e6f4ea;
+    background-color: #e0e0e0;
 }
 
-.template4 .table-header {
-    background-color: #28a745 !important;
-    color: white !important;
+.template4 .table-header,
+.template4 .custom-header,
+.template4 .custom-header th {
+    background-color: #424242 !important;
+    color: #fff !important;
 }
 
 .template4 .totals-box {
     font-size: 16px;
     font-weight: bold;
-    background-color: #c9f0d6;
+    background-color: #d6d6d6;
 }
 
 .template4 .total-highlight {
-    color: #28a745 !important;
+    color: #2e2e2e !important;
 }
 
-/* Address Section Styling */
-.address-section {
+.template4 .address-section {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
 }
 
-.address-box {
+.template4 .address-box {
     flex: 1;
-    background-color: white;
+    background-color: #e7e7e7;
     padding: 0;
     border: none;
 }
 
-/* Bank Details Box */
-.bank-box {
-    background-color: white;
+.template4 .bank-box {
+    background-color: #f1f1f1;
     padding: 1rem;
-    border: 1px solid black;
+    border: 1px solid #333;
     margin-top: 1rem;
-}
-
-.custom-header {
-    background-color: #28a745 !important;
-    color: white !important;
-}
-
-.custom-header th {
-    background-color: #28a745 !important;
-    color: white !important;
 }
