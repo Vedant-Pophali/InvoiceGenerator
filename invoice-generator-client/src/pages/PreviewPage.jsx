@@ -8,11 +8,13 @@ import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import html2canvas from "html2canvas";
 import { uploadInvoiceThumbnail } from "../service/cloudinaryService.js";
+import {generatePdfFromElement} from "../util/pdfUtils.js";
 const PreviewPage = () => {
     const previewRef = useRef();
     const { selectedTemplate, setSelectedTemplate, invoiceData, baseUrl } = useContext(AppContext);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const [downloading,setDownloading] = useState(false);
     const handleSaveAndExit = async () => {
         try {
             if (!previewRef.current) {
@@ -69,6 +71,22 @@ const PreviewPage = () => {
             toast.error("Deletion failed!",error.message);
         }
     }
+
+    const pdfConvert = async () => {
+        if(!previewRef.current) return;
+
+        try{
+            setDownloading(true);
+            await generatePdfFromElement(previewRef.current,`invoice_${Date.now()}.pdf`);
+        }
+        catch (error){
+            toast.error("Failed to generate the invoice !",error.message);
+        }
+        finally {
+            setDownloading(false);
+        }
+
+    }
     const templateColors = {
         template1: "#fd7e14", // Orange
         template2: "#6f42c1", // Purple
@@ -123,7 +141,12 @@ const PreviewPage = () => {
                     }
                     <button className="btn btn-secondary px-4">Back to Dashboard</button>
                     <button className="btn btn-info text-white px-4">Send Email</button>
-                    <button className="btn btn-primary px-4">Download PDF</button>
+                    <button className="btn btn-primary px-4" disabled={loading} onClick={pdfConvert}>
+                        {downloading && (
+                            <Loader2 className="me-2 spin-animation" size={18} />
+                        )}
+                        {downloading?"Downloading ...":"Download PDF"}
+                    </button>
                 </div>
             </div>
 
