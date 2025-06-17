@@ -2,7 +2,7 @@ import { useContext, useRef, useState } from "react";
 import { templates } from "../assets/assets.js";
 import { AppContext } from "../context/AppContext.jsx";
 import InvoicePreview from "../components/InvoicePreview.jsx";
-import { saveInvoice } from "../service/InvoiceService.js";
+import {deleteInvoice, saveInvoice} from "../service/InvoiceService.js";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
@@ -51,6 +51,24 @@ const PreviewPage = () => {
         }
     };
 
+    const handleDelete = async () => {
+        if(!invoiceData.id){
+            toast.error("Invoice not found!");
+            navigate("/dashboard");
+        }
+        try{
+            const response = await deleteInvoice(baseUrl, invoiceData.id);
+            if(response.status === 204){
+                toast.success("Successfully Deleted");
+                navigate("/dashboard");
+            }else{
+                toast.error("Deletion failed!");
+            }
+        }
+        catch(error){
+            toast.error("Deletion failed!",error.message);
+        }
+    }
     const templateColors = {
         template1: "#fd7e14", // Orange
         template2: "#6f42c1", // Purple
@@ -100,7 +118,9 @@ const PreviewPage = () => {
                         {loading && <Loader2 className="me-2 spin-animation" size={18} />}
                         {loading ? "Saving..." : "Save & Exit"}
                     </button>
-                    <button className="btn btn-danger px-4">Delete Invoice</button>
+                    {invoiceData.id &&
+                        <button className="btn btn-danger px-4" onClick={handleDelete}>Delete Invoice</button>
+                    }
                     <button className="btn btn-secondary px-4">Back to Dashboard</button>
                     <button className="btn btn-info text-white px-4">Send Email</button>
                     <button className="btn btn-primary px-4">Download PDF</button>
