@@ -41,12 +41,14 @@ const InvoiceForm = () => {
     };
 
     useEffect(() => {
-        if (!invoiceData.invoiceDetails.number) {
+        if (!invoiceData?.invoiceDetails?.number) {
             const randomNumber = `INV-${Math.floor(100000 + Math.random() * 900000)}`;
+            handleChange("invoiceDetails", "number", randomNumber);
+
             setInvoiceData(prev => ({
                 ...prev,
-                invoice: {
-                    ...prev.invoice,
+                invoiceDetails: {
+                    ...prev.invoiceDetails,
                     number: randomNumber
                 }
             }));
@@ -62,6 +64,11 @@ const InvoiceForm = () => {
                 : { name: "", phone: "", address: "" }
         }));
     };
+
+    const generateInvoiceNumber = () => {
+        return 'INV-' + Math.floor(1000000000 + Math.random() * 9000000000);
+    };
+
     const subtotal = invoiceData.items.reduce(
         (sum, item) => sum + Number(item.qty) * Number(item.amount),
         0
@@ -232,7 +239,7 @@ const InvoiceForm = () => {
                             type="text"
                             className="form-control"
                             id="invoiceNumber"
-                            value={invoiceData?.invoiceDetails?.number || ""}
+                            value={invoiceData?.invoiceDetails?.number || generateInvoiceNumber()}
                             onChange={(e) => handleChange("invoiceDetails", "number", e.target.value)}
                             required
                         />

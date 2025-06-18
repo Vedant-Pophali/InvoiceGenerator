@@ -7,48 +7,47 @@ const Template5 = ({ data }) => {
 
     return (
         <div className="template5 w-800 mx-auto p-4 border black-border bg-white">
-            {/* Company & Invoice Title */}
-            <div className="d-flex justify-content-between align-items-start mb-4">
-                <div className="d-flex flex-column align-items-start text-start">
-                    <img
-                        src={logoSrc}
-                        alt="Company Logo"
-                        style={{
-                            width: "120px",
-                            height: "120px",
-                            objectFit: "cover",
-                            marginBottom: "10px",
-                            borderRadius: "8px"
-                        }}
-                    />
-                    <div className="company-title fw-bold">{data.companyName}</div>
-                    <div style={{ fontSize: "12px", marginBottom: "6px" }}>{data.companyPhone}</div>
-                    <div>{data.companyAddress}</div>
-                </div>
+            {/* Logo and Company Info - Top Center */}
+            <div className="text-center mb-3">
+                <img
+                    src={logoSrc}
+                    alt="Company Logo"
+                    style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "cover",
+                        borderRadius: "8px",
+                        marginBottom: "10px"
+                    }}
+                />
+                <div className="company-title fw-bold">{data.companyName}</div>
+                <div style={{ fontSize: "12px", marginBottom: "6px" }}>{data.companyPhone}</div>
+                <div>{data.companyAddress}</div>
+            </div>
 
-                <div className="text-end">
-                    <div className="invoice-title">{data.title}</div>
-                    <div>Invoice #: {data.invoiceNumber}</div>
-                    <div>Date: {data.invoiceDate}</div>
-                    <div>Due: {data.paymentDate}</div>
-                </div>
+            {/* Invoice Info - Centered */}
+            <div className="text-center mb-4">
+                <div className="invoice-title fs-4 fw-bold">{data.title}</div>
+                <div>Invoice #: {data.invoiceNumber}</div>
+                <div>Date: {data.invoiceDate}</div>
+                <div>Due: {data.paymentDate}</div>
             </div>
 
             <hr />
 
-            {/* Billing & Shipping */}
-            <div className="address-section mb-4 d-flex gap-3">
-                <div className="address-box col-md-6 p-3" style={{ backgroundColor: "#e8f5e9", borderRadius: "8px" }}>
-                    <div className="billing-title mb-2 fw-semibold">Ship To</div>
-                    <div>{data.shippingName}</div>
-                    <div>{data.shippingAddress}</div>
-                    <div>{data.shippingPhone}</div>
-                </div>
-                <div className="address-box col-md-6 p-3" style={{ backgroundColor: "#e8f5e9", borderRadius: "8px" }}>
+            {/* Billing & Shipping - Vertical Stack */}
+            <div className="d-flex flex-column gap-3 mb-4">
+                <div className="address-box p-3" style={{ backgroundColor: "#e8f5e9", borderRadius: "8px" }}>
                     <div className="billing-title mb-2 fw-semibold">Bill To</div>
                     <div>{data.billingName}</div>
                     <div>{data.billingAddress}</div>
                     <div>{data.billingPhone}</div>
+                </div>
+                <div className="address-box p-3" style={{ backgroundColor: "#e8f5e9", borderRadius: "8px" }}>
+                    <div className="billing-title mb-2 fw-semibold">Ship To</div>
+                    <div>{data.shippingName}</div>
+                    <div>{data.shippingAddress}</div>
+                    <div>{data.shippingPhone}</div>
                 </div>
             </div>
 
@@ -80,32 +79,36 @@ const Template5 = ({ data }) => {
 
             <hr />
 
-            {/* Totals */}
-            <div
-                className="bank-box mt-4 p-3"
-                style={{ backgroundColor: "#e8f5e9", borderRadius: "8px", width: "300px", marginLeft: "auto" }}
-            >
-                <div className="d-flex justify-content-between">
-                    <div>Subtotal</div>
-                    <div>{data.currencySymbol}{data.subtotal.toFixed(2)}</div>
+            {/* Totals + Bank Side by Side */}
+            <div className="d-flex flex-wrap gap-3 mt-4">
+                <div
+                    className="bank-box p-3"
+                    style={{ backgroundColor: "#e8f5e9", borderRadius: "8px", flex: 1, minWidth: "250px" }}
+                >
+                    <div className="billing-title mb-2 fw-semibold">Bank Details</div>
+                    <div>Account Name: {data.accountName}</div>
+                    <div>Bank Name: {data.bankName}</div>
+                    <div>Account Number: {data.accountNumber}</div>
+                    <div>IFSC Code: {data.accountIfscCode}</div>
                 </div>
-                <div className="d-flex justify-content-between">
-                    <div>Tax ({data.tax}%)</div>
-                    <div>{data.currencySymbol}{data.taxAmount.toFixed(2)}</div>
-                </div>
-                <div className="d-flex justify-content-between total-highlight fw-bold">
-                    <div>Total</div>
-                    <div>{data.currencySymbol}{data.total.toFixed(2)}</div>
-                </div>
-            </div>
 
-            {/* Bank Details */}
-            <div className="bank-box mt-4 p-3" style={{ backgroundColor: "#e8f5e9", borderRadius: "8px" }}>
-                <div className="billing-title mb-2 fw-semibold">Bank Details</div>
-                <div>Account Name: {data.accountName}</div>
-                <div>Bank Name: {data.bankName}</div>
-                <div>Account Number: {data.accountNumber}</div>
-                <div>IFSC Code: {data.accountIfscCode}</div>
+                <div
+                    className="bank-box p-3"
+                    style={{ backgroundColor: "#e8f5e9", borderRadius: "8px", flex: 1, minWidth: "250px" }}
+                >
+                    <div className="d-flex justify-content-between">
+                        <div>Subtotal</div>
+                        <div>{data.currencySymbol}{data.subtotal.toFixed(2)}</div>
+                    </div>
+                    <div className="d-flex justify-content-between">
+                        <div>Tax ({data.tax}%)</div>
+                        <div>{data.currencySymbol}{data.taxAmount.toFixed(2)}</div>
+                    </div>
+                    <div className="d-flex justify-content-between total-highlight fw-bold">
+                        <div>Total</div>
+                        <div>{data.currencySymbol}{data.total.toFixed(2)}</div>
+                    </div>
+                </div>
             </div>
 
             {/* Notes */}
