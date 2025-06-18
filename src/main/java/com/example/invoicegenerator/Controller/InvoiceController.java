@@ -6,16 +6,16 @@ import com.example.invoicegenerator.Service.InvoiceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/invoices")
-@CrossOrigin()
 public class InvoiceController {
     private final InvoiceService invoiceService;
     private final EmailService emailService;
@@ -25,13 +25,16 @@ public class InvoiceController {
         return ResponseEntity.ok(invoiceService.saveInvoice(invoice));
     }
     @GetMapping()
-    public ResponseEntity<List<Invoice>> fetchInvoices() {
-        return ResponseEntity.ok(invoiceService.fetchInvoices());
+    public ResponseEntity<List<Invoice>> fetchInvoices(Authentication authentication) {
+        return ResponseEntity.ok(invoiceService.fetchInvoices(authentication.getName()));
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> removeInvoice(@PathVariable String id){
-        invoiceService.removeInvoice(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> removeInvoice(@PathVariable String id,Authentication authentication){
+        if(authentication.getName()!=null){
+            invoiceService.removeInvoice(id,authentication.getName());
+            return ResponseEntity.noContent().build();
+        }
+        throw new ResponseStatusException(HttpStatus.FORBIDDEN,"User not authorized");
     }
     @PostMapping("/sendInvoice")
     public ResponseEntity<?> sendInvoice(@RequestParam("file") MultipartFile file,

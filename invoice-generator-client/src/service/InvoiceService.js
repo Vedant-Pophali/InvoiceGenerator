@@ -1,20 +1,37 @@
 import axios from "axios";
 
-export const saveInvoice = async(baseUrl,payload) => {
-    return axios.post(`${baseUrl}/invoices`, payload);
-}
+// Save a new invoice
+export const saveInvoice = async (baseUrl, payload, token) => {
+    return axios.post(`${baseUrl}/invoices`, payload, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+};
 
-export const getAllInvoices = async(baseUrl) => {
-    return axios.get(`${baseUrl}/invoices`);
-}
+// Get all invoices
+export const getAllInvoices = async (baseUrl, token) => {
+    return axios.get(`${baseUrl}/invoices`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+};
 
-export const deleteInvoice = async(baseUrl,id) => {
-    return axios.delete(`${baseUrl}/invoices/${id}`);
-}
+// Delete an invoice by ID
+export const deleteInvoice = async (baseUrl, id, token) => {
+    return axios.delete(`${baseUrl}/invoices/${id}`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+};
 
-export const sendEmail = (baseUrl, formData) => {
+// Send invoice via email
+export const sendEmail = (baseUrl, formData, token) => {
     return axios.post(`${baseUrl}/invoices/sendInvoice`, formData, {
         headers: {
+            Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
         },
     });

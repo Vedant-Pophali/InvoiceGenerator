@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import { templates } from "../assets/assets.js";
 import { AppContext } from "../context/AppContext.jsx";
 import InvoicePreview from "../components/InvoicePreview.jsx";
@@ -10,9 +10,12 @@ import { Loader2 } from "lucide-react";
 import html2canvas from "html2canvas";
 import { uploadInvoiceThumbnail } from "../service/cloudinaryService.js";
 import { generatePdfFromElement } from "../util/pdfUtils.js";
+import {useAuth, useUser} from "@clerk/clerk-react";
 
 const PreviewPage = () => {
     const previewRef = useRef();
+    const {getToken} = useAuth();
+    const {user} = useUser();
     const { selectedTemplate, setSelectedTemplate, invoiceData, baseUrl } = useContext(AppContext);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -40,11 +43,12 @@ const PreviewPage = () => {
 
             const payload = {
                 ...invoiceData,
+                clerkId: user.id,
                 thumbnailUrl,
                 template: selectedTemplate,
             };
-
-            const response = await saveInvoice(baseUrl, payload);
+            const token = await getToken();
+            const response = await saveInvoice(baseUrl, payload,token);
             if (response.status === 200) {
                 toast.success("Successfully Saved the Invoice");
                 navigate("/dashboard");
@@ -65,7 +69,8 @@ const PreviewPage = () => {
             return navigate("/dashboard");
         }
         try {
-            const response = await deleteInvoice(baseUrl, invoiceData.id);
+            const token = await getToken();
+            const response = await deleteInvoice(baseUrl, invoiceData.id,token);
             if (response.status === 204) {
                 toast.success("Successfully Deleted");
                 navigate("/dashboard");
@@ -92,6 +97,7 @@ const PreviewPage = () => {
 
 
     const handelSendEmail = async () => {
+
         if (!previewRef.current || !customerEmail.trim()) {
             return toast.error("Enter Valid Email Address");
         }
@@ -103,8 +109,8 @@ const PreviewPage = () => {
             const formData = new FormData();
             formData.append("file", new File([pdfBlob], "invoice.pdf", { type: "application/pdf" }));
             formData.append("email", customerEmail.trim());
-
-            const response = await sendEmail(baseUrl, formData);
+            const token = getToken();
+            const response = await sendEmail(baseUrl, formData,token);
             if (response.status === 200) {
                 toast.success("Successfully Sent the Invoice");
                 setShowModal(false);
@@ -136,6 +142,12 @@ const PreviewPage = () => {
     const taxTotal = (subtotal * taxRate) / 100;
     const grandTotal = subtotal + taxTotal;
 
+    useEffect(() => {
+        if(!invoiceData.items?.length || !invoiceData ) {
+            toast.error("Empty Invoice");
+            navigate("/dashboard");
+        }
+    },[invoiceData, navigate]);
     return (
         <div className="previewpage container-fluid d-flex flex-column p-3 min-vh-100">
             {/* Template selector buttons */}
