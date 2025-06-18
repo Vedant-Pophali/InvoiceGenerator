@@ -172,7 +172,7 @@ const PreviewPage = () => {
                         </button>
                     )}
                     <button className="btn btn-secondary px-4" onClick={() => navigate("/dashboard")}>
-                        Back to Dashboard
+                        Dashboard
                     </button>
                     <button className="btn btn-info text-white px-4" onClick={() => setShowModal(true)}>
                         Send Email
