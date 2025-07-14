@@ -129,8 +129,7 @@ const PreviewPage = () => {
         template2: "#6f42c1",
         template3: "#4169e1",
         template4: "#343a40",
-        template5: "#228B22",
-        template6: "#d32f2f"
+        template5: "#228B22"
     };
 
     const subtotal = invoiceData.items.reduce((sum, item) => {

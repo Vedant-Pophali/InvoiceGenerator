@@ -1,71 +1,31 @@
-/* Container width */
 .w-800 {
     max-width: 800px;
 }
-
-/* Base styles */
 .template1 {
     font-family: 'Segoe UI', sans-serif;
     background-color: white;
     color: #333;
-    display: flex;
-    border: 2px solid black;
 }
-
-/* Sidebar (Company Info) */
-.template1 .sidebar {
-    background-color: #fff3e0;
-    width: 220px;
-    padding: 20px;
-    border-right: 2px solid #ffa726;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Sidebar Logo */
-.template1 .sidebar img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid #ffa726;
-    margin-bottom: 10px;
-}
-
-/* Company Info */
+/* Header Colors */
 .template1 .company-title {
     font-size: 18px;
     font-weight: bold;
     color: #fd7e14;
-    text-align: center;
 }
-.template1 .sidebar div {
-    font-size: 12px;
-    text-align: center;
-}
-
-/* Content */
-.template1 .main-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-}
-
-/* Invoice Title */
 .template1 .invoice-title {
     color: #fd7e14;
     font-size: 28px;
     font-weight: bold;
 }
-
-/* Billing Title */
 .template1 .billing-title {
     color: #fd7e14;
     font-size: 20px;
     font-weight: bold;
 }
-
-/* Address Section */
+.template1 .black-border {
+    border-color: black !important;
+}
+/* Address Boxes */
 .address-section {
     display: flex;
     justify-content: space-between;
@@ -73,11 +33,15 @@
 }
 .address-box {
     flex: 1;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #fff8e1;
+    background-color: white;
+    padding: 0;
+    border: none;
 }
-
+/* Light orange background for billing sections */
+.template1 .billing-box {
+    background-color: #fff3e0;
+    border-radius: 8px;
+}
 /* Totals Box */
 .template1 .totals-box {
     margin-top: 1rem;
@@ -87,22 +51,19 @@
     width: 300px;
     margin-left: auto;
 }
-
-/* Highlighted total row */
+/* Highlighted total */
 .template1 .total-highlight {
     color: #fd7e14 !important;
 }
-
 /* Bank Details */
 .template1 .bank-box {
-    background-color: #fff8e1;
+    background-color: #fff3e0;
     padding: 1rem;
+    border: 1px solid black;
     margin-top: 1rem;
     border-radius: 8px;
-    border: 1px solid black;
 }
-
-/* Table Header */
+/* Table header override to prevent purple Bootstrap */
 .template1-table thead tr th {
     background-color: #fd7e14 !important;
     color: white !important;
