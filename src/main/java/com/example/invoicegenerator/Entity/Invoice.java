@@ -9,7 +9,7 @@ import java.time.Instant;
 import java.util.List;
 @Data
 @Document(collection = "invoices")
-public class Invoice {
+public class Invoice  {
     @Id
     private String id;
     private String clerkId;
