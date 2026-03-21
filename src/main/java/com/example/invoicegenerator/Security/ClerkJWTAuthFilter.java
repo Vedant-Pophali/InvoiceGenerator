@@ -46,10 +46,19 @@ public class ClerkJWTAuthFilter extends OncePerRequestFilter {
         try {
             String token = authHeader.substring(7);
             String[] chunks = token.split("\\.");
+            if (chunks.length < 2) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Malformed JWT structure");
+                return;
+            }
             ObjectMapper mapper = new ObjectMapper();
 
             String headerJson = new String(Base64.getUrlDecoder().decode(chunks[0]));
             JsonNode headerNode = mapper.readTree(headerJson);
+            
+            if (!headerNode.has("kid")) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Malformed JWT header");
+                return;
+            }
             String kid = headerNode.get("kid").asText();
 
             PublicKey publicKey = jwksProvider.getPublicKey(kid);
@@ -67,7 +76,7 @@ public class ClerkJWTAuthFilter extends OncePerRequestFilter {
                     new UsernamePasswordAuthenticationToken(
                             clerkUserId,
                             null,
-                            Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN"))
+                            Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))
                     );
 
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
