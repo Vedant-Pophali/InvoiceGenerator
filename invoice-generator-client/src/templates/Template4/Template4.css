@@ -1,72 +1,20 @@
-.w-800 {
-    max-width: 800px;
-}
-
-.template4 {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f8f9fa;
-    color: #333; /* Dark base text */
-}
-
-.template4 .company-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #212121;
-}
-
-.template4 .invoice-title {
-    color: #2c2c2c;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.template4 .billing-title {
-    color: #424242;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.template4 .black-border {
-    border-color: #555 !important;
-}
-
-.template4 .billing-box {
-    background-color: #e0e0e0;
-}
-
-.template4 .table-header,
-.template4 .custom-header,
-.template4 .custom-header th {
-    background-color: #424242 !important;
-    color: #fff !important;
-}
-
-.template4 .totals-box {
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #d6d6d6;
-}
-
-.template4 .total-highlight {
-    color: #2e2e2e !important;
-}
-
-.template4 .address-section {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-}
-
-.template4 .address-box {
-    flex: 1;
-    background-color: #e7e7e7;
-    padding: 0;
-    border: none;
-}
-
-.template4 .bank-box {
-    background-color: #f1f1f1;
-    padding: 1rem;
-    border: 1px solid #333;
-    margin-top: 1rem;
-}
+.template4-wrapper { max-width: 800px; margin: 0 auto; background: #fff; font-family: 'Segoe UI', Arial, sans-serif; color: #333; padding: 40px; border: 1px solid #eaeaea; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.t4-primary-text { color: #343a40; }
+.t4-light-bg { background-color: #f0f1f2; }
+.t4-title { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
+.t4-company-name { font-size: 18px; font-weight: 700; margin-top: 10px; margin-bottom: 5px; }
+.t4-header-info { font-size: 13px; line-height: 1.5; }
+.t4-invoice-details { text-align: right; font-size: 13px; line-height: 1.6; }
+.t4-billed-box { padding: 15px 20px; border-radius: 4px; font-size: 13px; line-height: 1.6; height: 100%; border: 1px solid #d6d9dc; }
+.t4-box-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.t4-table { width: 100%; border-collapse: collapse; margin-top: 30px; font-size: 13px; }
+.t4-table th { background-color: #343a40; color: white; font-weight: 600; padding: 10px 15px; text-align: left; border: 1px solid #343a40; }
+.t4-table td { padding: 10px 15px; border: 1px solid #ddd; color: #444; }
+.t4-table th:nth-child(2), .t4-table td:nth-child(2), .t4-table th.text-right, .t4-table td.text-right { text-align: center; }
+.t4-table th.text-right, .t4-table td.text-right { text-align: right !important; }
+.t4-totals-container { display: flex; justify-content: flex-end; margin-top: 20px; }
+.t4-totals-box { width: 300px; padding: 15px 20px; font-size: 13px; line-height: 1.8; border: 1px solid #d6d9dc; }
+.t4-totals-row { display: flex; justify-content: space-between; }
+.t4-grand-total { font-weight: bold; font-size: 15px; margin-top: 5px; border-top: 1px solid #c7cacf; padding-top: 8px; }
+.t4-remarks-section { margin-top: 40px; font-size: 13px; }
+.t4-remarks-title { font-size: 14px; font-weight: bold; margin-bottom: 5px; }

@@ -1,82 +1,20 @@
-.w-800 {
-    max-width: 800px;
-}
-
-.template2 {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: white;
-    color: #333;
-}
-
-.template2 .company-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #4b0082; /* Dark Purple */
-}
-
-.template2 .invoice-title {
-    color: #4b0082;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.template2 .billing-title {
-    color: #4b0082;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.template2 .black-border {
-    border-color: black !important;
-}
-
-.template2 .billing-box {
-    background-color: #efe0ff; /* light lavender background */
-}
-
-.template2 .table-header {
-    background-color: #4b0082 !important;
-    color: white !important;
-}
-
-.template2 .totals-box {
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #e3d7fa;
-}
-
-.template2 .total-highlight {
-    color: #4b0082 !important;
-}
-
-/* Address Section Styling */
-.address-section {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-}
-
-.address-box {
-    flex: 1;
-    background-color: white;
-    padding: 0;
-    border: none;
-}
-
-/* Bank Details Box */
-.bank-box {
-    background-color: white;
-    padding: 1rem;
-    border: 1px solid black;
-    margin-top: 1rem;
-}
-
-.custom-header {
-    background-color: #4b0082 !important;
-    color: white !important;
-}
-
-.custom-header th {
-    background-color: #4b0082 !important;
-    color: white !important;
-}
+.template2-wrapper { max-width: 800px; margin: 0 auto; background: #fff; font-family: 'Segoe UI', Arial, sans-serif; color: #333; padding: 40px; border: 1px solid #eaeaea; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.t2-primary-text { color: #6f42c1; }
+.t2-light-bg { background-color: #f3ebf6; }
+.t2-title { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
+.t2-company-name { font-size: 18px; font-weight: 700; margin-top: 10px; margin-bottom: 5px; }
+.t2-header-info { font-size: 13px; line-height: 1.5; }
+.t2-invoice-details { text-align: right; font-size: 13px; line-height: 1.6; }
+.t2-billed-box { padding: 15px 20px; border-radius: 4px; font-size: 13px; line-height: 1.6; height: 100%; border: 1px solid #e1d4e6; }
+.t2-box-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.t2-table { width: 100%; border-collapse: collapse; margin-top: 30px; font-size: 13px; }
+.t2-table th { background-color: #6f42c1; color: white; font-weight: 600; padding: 10px 15px; text-align: left; border: 1px solid #6f42c1; }
+.t2-table td { padding: 10px 15px; border: 1px solid #ddd; color: #444; }
+.t2-table th:nth-child(2), .t2-table td:nth-child(2), .t2-table th.text-right, .t2-table td.text-right { text-align: center; }
+.t2-table th.text-right, .t2-table td.text-right { text-align: right !important; }
+.t2-totals-container { display: flex; justify-content: flex-end; margin-top: 20px; }
+.t2-totals-box { width: 300px; padding: 15px 20px; font-size: 13px; line-height: 1.8; border: 1px solid #e1d4e6; }
+.t2-totals-row { display: flex; justify-content: space-between; }
+.t2-grand-total { font-weight: bold; font-size: 15px; margin-top: 5px; border-top: 1px solid #dcbbee; padding-top: 8px; }
+.t2-remarks-section { margin-top: 40px; font-size: 13px; }
+.t2-remarks-title { font-size: 14px; font-weight: bold; margin-bottom: 5px; }

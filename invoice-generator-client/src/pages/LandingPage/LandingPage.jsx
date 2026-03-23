@@ -1,7 +1,10 @@
 import './LandingPage.css';
 import { assets } from "../../assets/assets.js";
 import { Twitter, Facebook, Linkedin,Instagram } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 const LandingPage = () => {
+    const navigate = useNavigate();
     return (
         <>
             <header id="hero" className="hero-section text-white text-center">
@@ -15,7 +18,7 @@ const LandingPage = () => {
                                 One Stop Invoice Generation Solution
                             </p>
                             <p>
-                                <button className="btn btn-lg btn-warning fw-bold rounded-pill my-2">
+                                <button onClick={() => navigate('/generate')} className="btn btn-lg btn-warning fw-bold rounded-pill my-2">
                                     Generate Invoice
                                 </button>
                                 <a href="#how-it-works" className="btn btn-lg btn-outline-light rounded-pill m-2">
@@ -129,7 +132,7 @@ const LandingPage = () => {
                     <p className="lead mb-4" style={{ fontSize: '1.2rem' }}>
                         Generate professional, branded invoices in just a few clicks.
                     </p>
-                    <button className="btn btn-lg btn-warning fw-bold rounded-pill px-4">
+                    <button onClick={() => navigate('/generate')} className="btn btn-lg btn-warning fw-bold rounded-pill px-4">
                         Start Now
                     </button>
                 </div>

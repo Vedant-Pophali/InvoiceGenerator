@@ -25,15 +25,11 @@ const App = () => {
                 } />
 
                 <Route path="/generate" element={
-                    <ProtectedRoute>
-                        <MainPage />
-                    </ProtectedRoute>
+                    <MainPage />
                 } />
 
                 <Route path="/preview" element={
-                    <ProtectedRoute>
-                        <PreviewPage />
-                    </ProtectedRoute>
+                    <PreviewPage />
                 } />
             </Routes>
         </BrowserRouter>

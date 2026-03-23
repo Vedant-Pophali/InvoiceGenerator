@@ -1,71 +1,124 @@
-.w-800 {
+.template1-wrapper {
     max-width: 800px;
-}
-.template1 {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: white;
+    margin: 0 auto;
+    background: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
     color: #333;
+    padding: 40px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
-/* Header Colors */
-.template1 .company-title {
+
+.t1-orange-text {
+    color: #e64a19;
+}
+
+.t1-light-bg {
+    background-color: #fff3e0;
+}
+
+.t1-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.t1-company-name {
     font-size: 18px;
-    font-weight: bold;
-    color: #fd7e14;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
-.template1 .invoice-title {
-    color: #fd7e14;
-    font-size: 28px;
-    font-weight: bold;
+
+.t1-header-info {
+    font-size: 13px;
+    line-height: 1.5;
 }
-.template1 .billing-title {
-    color: #fd7e14;
-    font-size: 20px;
-    font-weight: bold;
+
+.t1-invoice-details {
+    text-align: right;
+    font-size: 13px;
+    line-height: 1.6;
 }
-.template1 .black-border {
-    border-color: black !important;
+
+.t1-billed-box {
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.6;
+    height: 100%;
 }
-/* Address Boxes */
-.address-section {
+
+.t1-box-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.t1-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    font-size: 13px;
+}
+
+.t1-table th {
+    background-color: #e64a19;
+    color: white;
+    font-weight: 600;
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #e64a19;
+}
+
+.t1-table td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    color: #444;
+}
+
+.t1-table th:nth-child(2),
+.t1-table td:nth-child(2) {
+    text-align: center;
+}
+
+.t1-table th.text-right,
+.t1-table td.text-right {
+    text-align: right !important;
+}
+
+.t1-totals-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.t1-totals-box {
+    width: 300px;
+    padding: 15px 20px;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.t1-totals-row {
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
 }
-.address-box {
-    flex: 1;
-    background-color: white;
-    padding: 0;
-    border: none;
-}
-/* Light orange background for billing sections */
-.template1 .billing-box {
-    background-color: #fff3e0;
-    border-radius: 8px;
-}
-/* Totals Box */
-.template1 .totals-box {
-    margin-top: 1rem;
-    padding: 1rem;
-    background-color: #fff3e0;
-    border-radius: 8px;
-    width: 300px;
-    margin-left: auto;
-}
-/* Highlighted total */
-.template1 .total-highlight {
-    color: #fd7e14 !important;
-}
-/* Bank Details */
-.template1 .bank-box {
-    background-color: #fff3e0;
-    padding: 1rem;
-    border: 1px solid black;
-    margin-top: 1rem;
-    border-radius: 8px;
-}
-/* Table header override to prevent purple Bootstrap */
-.template1-table thead tr th {
-    background-color: #fd7e14 !important;
-    color: white !important;
+
+.t1-grand-total {
     font-weight: bold;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.t1-remarks-section {
+    margin-top: 40px;
+    font-size: 13px;
+}
+
+.t1-remarks-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }

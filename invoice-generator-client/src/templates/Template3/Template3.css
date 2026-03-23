@@ -1,74 +1,20 @@
-.w-800 {
-    max-width: 800px;
-}
-
-.template3 {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: white;
-    color: #1a237e; /* Deep Blue Text */
-}
-
-.template3 .company-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #0d47a1; /* Darker Blue */
-}
-
-.template3 .invoice-title {
-    color: #0d47a1;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.template3 .billing-title {
-    color: #0d47a1;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.template3 .black-border {
-    border-color: #0d47a1 !important;
-}
-
-.template3 .billing-box {
-    background-color: #e3f2fd;
-}
-
-.template3 .table-header,
-.template3 .custom-header,
-.template3 .custom-header th {
-    background-color: #1565c0 !important;
-    color: white !important;
-}
-
-.template3 .totals-box {
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #bbdefb;
-}
-
-.template3 .total-highlight {
-    color: #0d47a1 !important;
-}
-
-/* Address Section Styling */
-.template3 .address-section {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-}
-
-.template3 .address-box {
-    flex: 1;
-    background-color: white;
-    padding: 0;
-    border: none;
-}
-
-/* Bank Details Box */
-.template3 .bank-box {
-    background-color: white;
-    padding: 1rem;
-    border: 1px solid #0d47a1;
-    margin-top: 1rem;
-}
+.template3-wrapper { max-width: 800px; margin: 0 auto; background: #fff; font-family: 'Segoe UI', Arial, sans-serif; color: #333; padding: 40px; border: 1px solid #eaeaea; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.t3-primary-text { color: #4169e1; }
+.t3-light-bg { background-color: #eaeffb; }
+.t3-title { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
+.t3-company-name { font-size: 18px; font-weight: 700; margin-top: 10px; margin-bottom: 5px; }
+.t3-header-info { font-size: 13px; line-height: 1.5; }
+.t3-invoice-details { text-align: right; font-size: 13px; line-height: 1.6; }
+.t3-billed-box { padding: 15px 20px; border-radius: 4px; font-size: 13px; line-height: 1.6; height: 100%; border: 1px solid #d0dcf5; }
+.t3-box-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.t3-table { width: 100%; border-collapse: collapse; margin-top: 30px; font-size: 13px; }
+.t3-table th { background-color: #4169e1; color: white; font-weight: 600; padding: 10px 15px; text-align: left; border: 1px solid #4169e1; }
+.t3-table td { padding: 10px 15px; border: 1px solid #ddd; color: #444; }
+.t3-table th:nth-child(2), .t3-table td:nth-child(2), .t3-table th.text-right, .t3-table td.text-right { text-align: center; }
+.t3-table th.text-right, .t3-table td.text-right { text-align: right !important; }
+.t3-totals-container { display: flex; justify-content: flex-end; margin-top: 20px; }
+.t3-totals-box { width: 300px; padding: 15px 20px; font-size: 13px; line-height: 1.8; border: 1px solid #d0dcf5; }
+.t3-totals-row { display: flex; justify-content: space-between; }
+.t3-grand-total { font-weight: bold; font-size: 15px; margin-top: 5px; border-top: 1px solid #c2d1f1; padding-top: 8px; }
+.t3-remarks-section { margin-top: 40px; font-size: 13px; }
+.t3-remarks-title { font-size: 14px; font-weight: bold; margin-bottom: 5px; }
